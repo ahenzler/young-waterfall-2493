@@ -23,14 +23,11 @@ ActiveRecord::Schema.define(version: 2021_06_01_163959) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mechanics", force: :cascade do |t|
-    t.string "name"
-    t.integer "years_experience"
-  end
-
   create_table "movie_actors", force: :cascade do |t|
     t.bigint "actor_id"
     t.bigint "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["actor_id"], name: "index_movie_actors_on_actor_id"
     t.index ["movie_id"], name: "index_movie_actors_on_movie_id"
   end
@@ -45,14 +42,6 @@ ActiveRecord::Schema.define(version: 2021_06_01_163959) do
     t.index ["studio_id"], name: "index_movies_on_studio_id"
   end
 
-  create_table "rides", force: :cascade do |t|
-    t.string "name"
-    t.integer "thrill_rating"
-    t.boolean "open"
-    t.bigint "mechanic_id"
-    t.index ["mechanic_id"], name: "index_rides_on_mechanic_id"
-  end
-
   create_table "studios", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -63,5 +52,4 @@ ActiveRecord::Schema.define(version: 2021_06_01_163959) do
   add_foreign_key "movie_actors", "actors"
   add_foreign_key "movie_actors", "movies"
   add_foreign_key "movies", "studios"
-  add_foreign_key "rides", "mechanics"
 end
