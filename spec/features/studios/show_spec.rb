@@ -12,7 +12,7 @@ RSpec.describe 'the application show' do
   end
 
   it 'displays the studio name' do
-    visit "/studio/#{@studio_1.id}"
+    visit "/studios/#{@studio_1.id}"
     expect(page).to have_content(@studio_1.name)
     expect(page).to have_content(@studio_1.location)
     expect(page).to have_content(@movie_1.title)

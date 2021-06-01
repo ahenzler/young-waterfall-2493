@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  get '/studios/:id', to: 'applications#show'
+  get '/studios/:id', to: 'studios#show'
 end
